@@ -91,8 +91,8 @@ if __name__ == "__main__":
 
 	wait = 1
 	while True:
-		pos = get_playlist_pos()
-		if pos[1] - pos[0] < dist:
+		pos, total = get_playlist_pos()
+		if total - pos < dist:
 			playlist = parse_playlist()
 			next_genre = get_smart_genre(playlist)
 			print("Adding %s" % next_genre)
