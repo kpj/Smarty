@@ -10,7 +10,8 @@ import mpd
 mpd_ip = os.getenv("MPD_HOST")
 mpd_port = 6600
 
-dist = 5
+songs_to_end = 5 # choose new song when only x are left in playlist
+max_num = 3000 # maximal number of songs in playlist
 
 
 # open connection
@@ -58,6 +59,12 @@ def add_song(path):
 	"""
 	client.add(path)
 
+def rm_song(pos):
+	"""Removes song at given position from playlist.
+	First song in playlist has position 0
+	"""
+	client.delete(pos)
+
 def disable_random():
 	"""Disables random playing of songs from playlist
 	"""
@@ -92,7 +99,10 @@ if __name__ == "__main__":
 	wait = 1
 	while True:
 		pos, total = get_playlist_pos()
-		if total - pos < dist:
+		if total > max_num:
+			for i in range(total - max_num):
+				rm_song(0)
+		if total - pos < songs_to_end:
 			playlist = parse_playlist()
 			next_genre = get_smart_genre(playlist)
 			print("Adding %s" % next_genre)
