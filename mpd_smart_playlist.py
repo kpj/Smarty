@@ -7,11 +7,11 @@ import mpd
 
 
 # settings
-mpd_ip = os.getenv("MPD_HOST")
+mpd_ip = os.getenv("MPD_HOST", "localhost")
 mpd_port = 6600
 
 songs_to_end = 5 # choose new song when only x are left in playlist
-max_num = 3000 # maximal number of songs in playlist
+max_num = 50 # maximal number of songs in playlist
 
 
 # open connection
@@ -107,6 +107,7 @@ if __name__ == "__main__":
 			next_genre = get_smart_genre(playlist)
 			print("Adding %s" % next_genre)
 			add_song(get_song(next_genre))
+			del playlist
 
 			wait = 0.5
 		else:
