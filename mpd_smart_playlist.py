@@ -74,7 +74,10 @@ def get_playlist_pos():
 	"""Returns current position in and length of playlist
 	"""
 	cs = client.status()
-	return (int(cs["song"]) + 1, int(cs["playlistlength"]))
+	if "song" in cs.keys():
+		return (int(cs["song"]) + 1, int(cs["playlistlength"]))
+	else:
+		return (-1, int(cs["playlistlength"]))
 
 def save_current_settings():
 	"""Saves current mpd settings to allow later restoration
@@ -102,7 +105,7 @@ if __name__ == "__main__":
 		if total > max_num:
 			for i in range(total - max_num):
 				rm_song(0)
-		if total - pos < songs_to_end:
+		if pos != -1 and total - pos < songs_to_end:
 			playlist = parse_playlist()
 			next_genre = get_smart_genre(playlist)
 			print("Adding %s" % next_genre)
