@@ -41,6 +41,11 @@ parser.add_argument(
         dest="songs_to_end",
         default=5
 )
+parser.add_argument(
+        "--norepeat",
+        help="Don't add songs which are already in playlist.",
+        action="store_true"
+)
 args = parser.parse_args()
 
 
@@ -79,10 +84,21 @@ def get_song(genre):
         """Returns path to random song of given genre
         """
         songs = client.find("genre", genre)
-        if len(songs) > 0:
-                return random.choice(songs)["file"]
-        else:
-                return None
+        while len(songs) > 0:
+                song = random.choice(songs)
+                if not in_playlist(song):
+                    return song["file"]
+                else:
+                    songs.remove(song)
+        return None
+
+def in_playlist(new_song):
+        """Checks if given song is already in playlist
+        """
+        for song in client.playlistinfo():
+                if song["file"] == new_song["file"]:
+                    return True
+        return False
 
 def add_song(path):
         """Adds song specified by file path to current playlist
@@ -138,8 +154,12 @@ if __name__ == "__main__":
                 if pos != -1 and total - pos < args.songs_to_end:
                         playlist = parse_playlist()
                         next_genre = get_smart_genre(playlist)
-                        print("Adding %s" % next_genre)
-                        add_song(get_song(next_genre))
+                        new_song = get_song(next_genre)
+                        if new_song == None:
+                                print("Skipping %s" % next_genre)
+                        else:
+                                print("Adding %s" % next_genre)
+                                add_song(get_song(next_genre))
                         del playlist
 
                         wait = 0.5
