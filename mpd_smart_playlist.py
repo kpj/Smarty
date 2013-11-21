@@ -86,7 +86,7 @@ def get_song(genre):
         songs = client.find("genre", genre)
         while len(songs) > 0:
                 song = random.choice(songs)
-                if not in_playlist(song):
+                if not args.norepeat or not in_playlist(song):
                     return song["file"]
                 else:
                     songs.remove(song)
