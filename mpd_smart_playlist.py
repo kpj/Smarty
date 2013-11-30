@@ -87,18 +87,17 @@ def get_song(genre):
         while len(songs) > 0:
                 song = random.choice(songs)
                 if not args.norepeat or not in_playlist(song):
-                    return song["file"]
+                        return song["file"]
                 else:
-                    songs.remove(song)
+                        songs.remove(song)
         return None
 
 def in_playlist(new_song):
         """Checks if given song is already in playlist
         """
-        for song in client.playlistinfo():
-                if song["file"] == new_song["file"]:
-                    return True
-        return False
+        if len(client.playlistsearch("file", new_song["file"])) == 0:
+                return False
+        return True
 
 def add_song(path):
         """Adds song specified by file path to current playlist
@@ -145,7 +144,6 @@ if __name__ == "__main__":
         atexit.register(restore_previous_settings, save_current_settings())
         disable_random()
 
-        wait = 1
         while True:
                 pos, total = get_playlist_pos()
                 if total > args.max_num:
