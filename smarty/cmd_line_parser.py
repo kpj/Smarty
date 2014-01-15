@@ -27,7 +27,7 @@ parser.add_argument(
 )
 parser.add_argument(
 	"--dist",
-	help="Choose new song if only <x> songs are left to play in current playlist",
+	help="Add new song if only <x> songs are left to play in current playlist",
 	type=int,
 	metavar="<num>",
 	dest="songs_to_end",
