@@ -1,6 +1,14 @@
 Smarty
 ======
 
+.. image:: https://pypip.in/v/smarty/badge.png
+    :target: https://crate.io/packages/smarty/
+    :alt: Latest version
+    
+.. image:: https://pypip.in/d/smarty/badge.png
+    :target: https://crate.io/packages/smarty/
+    :alt: Number of PyPI downloads
+
 A smart playlist generator for MPD written in python.
 
 
