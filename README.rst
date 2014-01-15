@@ -2,12 +2,12 @@ Smarty
 ======
 
 .. image:: https://pypip.in/v/smarty/badge.png
-    :target: https://crate.io/packages/smarty/
-    :alt: Latest version
-    
+	:target: https://crate.io/packages/smarty/
+	:alt: Latest version
+	
 .. image:: https://pypip.in/d/smarty/badge.png
-    :target: https://crate.io/packages/smarty/
-    :alt: Number of PyPI downloads
+	:target: https://crate.io/packages/smarty/
+	:alt: Number of PyPI downloads
 
 A smart playlist generator for MPD written in python.
 
@@ -34,19 +34,21 @@ In default configuration, smarty will try to use ``$MPD_HOST`` (environment vari
 
 ::
 
-	usage: smarty [-h] [-i <ip>] [-p <port>] [--maxnum <num>] [--dist <num>] [--norepeat]
+	usage: smarty [-h] [-i <ip>] [-p <port>] [--maxnum <num>] [--dist <num>]
+				  [--norepeat] [-v]
 
 	Smart playlist generator written in python.
 
 	optional arguments:
-	   -h, --help            show this help message and exit
-	   -i <ip>, --ip <ip>    IP address of mpd server
-	   -p <port>, --port <port>
-				 Port mpd server is listening on
-	   --maxnum <num>        Maximal number of songs in playlist
-	   --dist <num>          Add new song if only <x> songs are left to play in current playlist
-	   --norepeat            Don't add songs which are already in playlist.
-
+	  -h, --help            show this help message and exit
+	  -i <ip>, --ip <ip>    IP address of mpd server
+	  -p <port>, --port <port>
+				Port mpd server is listening on
+	  --maxnum <num>        Maximal number of songs in playlist
+	  --dist <num>          Add new song if only <x> songs are left to play in current playlist
+	  --norepeat            Don't add songs which are already in playlist.
+	  -v, --verbose         Print information about running process
+  
 
 Bug Reports
 -----------
