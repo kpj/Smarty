@@ -13,8 +13,6 @@ def main():
 
 	client = mpd.MPDClient()
 	client.connect(args.ip, args.port)
-
-	# tell library about client
 	library.set_client(client)
 
 	atexit.register(library.restore_previous_settings, library.save_current_settings())
