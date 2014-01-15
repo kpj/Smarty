@@ -44,7 +44,7 @@ In default configuration, smarty will try to use ``$MPD_HOST`` (environment vari
 	   -p <port>, --port <port>
 				 Port mpd server is listening on
 	   --maxnum <num>        Maximal number of songs in playlist
-	   --dist <num>          Choose new song if only <x> songs are left to play in current playlist
+	   --dist <num>          Add new song if only <x> songs are left to play in current playlist
 	   --norepeat            Don't add songs which are already in playlist.
 
 
