@@ -28,9 +28,9 @@ def main():
 			next_genre = library.get_smart_genre(playlist)
 			new_song = library.get_song(next_genre)
 			if new_song == None:
-					print("Skipping %s" % next_genre)
+					if args.verbose: print("Skipping %s" % next_genre)
 			else:
-					print("Adding %s" % next_genre)
+					if args.verbose: print("Adding %s" % next_genre)
 					library.add_song(library.get_song(next_genre))
 			del playlist
 

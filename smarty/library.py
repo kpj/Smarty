@@ -96,4 +96,4 @@ def restore_previous_settings(settings):
 	client.close()
 	client.disconnect()
 
-	print("Shutting down")
+	if args.verbose: print("Shutting down")

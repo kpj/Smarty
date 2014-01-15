@@ -38,6 +38,13 @@ parser.add_argument(
 	help="Don't add songs which are already in playlist.",
 	action="store_true"
 )
+parser.add_argument(
+	"-v",
+	"--verbose",
+	help="Print information about running process",
+	action="store_true"
+
+)
 
 def get_args():
 	return parser.parse_args()
