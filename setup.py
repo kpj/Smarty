@@ -9,7 +9,7 @@ setup(
 	version='0.3.0',
 	description='Smart playlist creation for mpd',
 	long_description=readme(),
-	url='https://github.com/kpj/smartPlaylist',
+	url='https://github.com/kpj/Smarty',
 	author='kpj',
 	author_email='kpjkpjkpjkpjkpjkpj@gmail.com',
 	license='Apache2',
