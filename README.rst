@@ -49,4 +49,3 @@ Links
 -----
 - Github: https://github.com/kpj/Smarty
 - PyPi Homepage: https://pypi.python.org/pypi/smarty
-- Travis CI: https://travis-ci.org/kpj/Smarty
