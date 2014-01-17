@@ -28,6 +28,10 @@ def parse_playlist():
 def get_smart_genre(genres):
 	"""Returns some genre from playlist. The more often one genre appears the more likely it is to be added
 	"""
+	# filter out excluded genres
+	genres = [g for g in genres if not g in args.exclude]
+
+	# select genre
 	totals = []
 	running_total = 0
 	for k in genres.keys():

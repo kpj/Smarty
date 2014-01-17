@@ -45,6 +45,12 @@ parser.add_argument(
 	action="store_true"
 
 )
+parser.add_argument(
+	"--exclude",
+	help="Never add these genres to playlist",
+	nargs='+',
+	metavar="genre"
+)
 
 def get_args():
 	return parser.parse_args()

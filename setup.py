@@ -6,7 +6,7 @@ def readme():
 
 setup(
 	name='smarty',
-	version='0.3.2',
+	version='0.3.3',
 	description='Smart playlist creation for mpd',
 	long_description=readme(),
 	url='https://github.com/kpj/Smarty',
