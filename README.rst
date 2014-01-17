@@ -35,7 +35,7 @@ In default configuration, smarty will try to use ``$MPD_HOST`` (environment vari
 ::
 
 	usage: smarty [-h] [-i <ip>] [-p <port>] [--maxnum <num>] [--dist <num>]
-				  [--norepeat] [-v]
+				  [--norepeat] [-v] [--exclude genre [genre ...]]
 
 	Smart playlist generator written in python.
 
