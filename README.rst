@@ -35,7 +35,8 @@ In default configuration, smarty will try to use ``$MPD_HOST`` (environment vari
 ::
 
 	usage: smarty [-h] [-i <ip>] [-p <port>] [--maxnum <num>] [--dist <num>]
-				  [--norepeat] [-v] [--exclude genre [genre ...]]
+			[--norepeat] [-v] [--exclude <genre> [<genre> ...]]
+
 
 	Smart playlist generator written in python.
 
@@ -48,8 +49,8 @@ In default configuration, smarty will try to use ``$MPD_HOST`` (environment vari
 	  --dist <num>          Add new song if only <x> songs are left to play in current playlist
 	  --norepeat            Don't add songs which are already in playlist.
 	  -v, --verbose         Print information about running process
-	  --exclude genre [genre ...]
-	  			Never add these genres to playlist
+	  --exclude <genre> [<genre> ...]
+				Never add these genres to playlist
 
 
 Bug Reports
