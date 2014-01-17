@@ -29,7 +29,7 @@ def get_smart_genre(genres):
 	"""Returns some genre from playlist. The more often one genre appears the more likely it is to be added
 	"""
 	# filter out excluded genres
-	genres = [g for g in genres if not g in args.exclude]
+	genres = {genre: files for genre, files in genres.items() if not genre in args.exclude}
 
 	# select genre
 	totals = []

@@ -26,15 +26,19 @@ def main():
 		if pos != -1 and total - pos < args.songs_to_end:
 			playlist = communication_handler.parse_playlist()
 			next_genre = communication_handler.get_smart_genre(playlist)
-			new_song = communication_handler.get_song(next_genre)
-			if new_song == None:
-					if args.verbose: print("Skipping %s" % next_genre)
+			if next_genre == None:
+				if args.verbose: print("No suitable genre found")
+				wait = 10
 			else:
-					if args.verbose: print("Adding %s" % next_genre)
-					communication_handler.add_song(communication_handler.get_song(next_genre))
-			del playlist
+				new_song = communication_handler.get_song(next_genre)
+				if new_song == None:
+						if args.verbose: print("Skipping %s" % next_genre)
+				else:
+						if args.verbose: print("Adding %s" % next_genre)
+						communication_handler.add_song(communication_handler.get_song(next_genre))
+				del playlist
 
-			wait = 0.5
+				wait = 0.5
 		else:
 			wait = 10
 
