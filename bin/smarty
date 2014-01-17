@@ -4,34 +4,34 @@ import atexit, time
 
 import mpd
 
-from smarty import cmd_line_parser, library
+from smarty import cmd_line_parser, communication_handler
 
 
 def main():
 	args = cmd_line_parser.get_args()
-	library.set_args(args)
+	communication_handler.set_args(args)
 
 	client = mpd.MPDClient()
 	client.connect(args.ip, args.port)
-	library.set_client(client)
+	communication_handler.set_client(client)
 
-	atexit.register(library.restore_previous_settings, library.save_current_settings())
-	library.disable_random()
+	atexit.register(communication_handler.restore_previous_settings, communication_handler.save_current_settings())
+	communication_handler.disable_random()
 
 	while True:
-		pos, total = library.get_playlist_pos()
+		pos, total = communication_handler.get_playlist_pos()
 		if total > args.max_num:
 			for i in range(total - args.max_num):
-					library.rm_song(0)
+					communication_handler.rm_song(0)
 		if pos != -1 and total - pos < args.songs_to_end:
-			playlist = library.parse_playlist()
-			next_genre = library.get_smart_genre(playlist)
-			new_song = library.get_song(next_genre)
+			playlist = communication_handler.parse_playlist()
+			next_genre = communication_handler.get_smart_genre(playlist)
+			new_song = communication_handler.get_song(next_genre)
 			if new_song == None:
 					if args.verbose: print("Skipping %s" % next_genre)
 			else:
 					if args.verbose: print("Adding %s" % next_genre)
-					library.add_song(library.get_song(next_genre))
+					communication_handler.add_song(communication_handler.get_song(next_genre))
 			del playlist
 
 			wait = 0.5
