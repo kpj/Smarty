@@ -43,7 +43,6 @@ parser.add_argument(
 	"--verbose",
 	help="Print information about running process",
 	action="store_true"
-
 )
 parser.add_argument(
 	"--exclude",
