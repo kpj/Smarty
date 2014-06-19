@@ -97,7 +97,7 @@ def restore_previous_settings(settings):
 	"""
 	client.random(settings["random"])
 
+	if args.verbose: print("Shutting down")
+
 	client.close()
 	client.disconnect()
-
-	if args.verbose: print("Shutting down")
