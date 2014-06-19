@@ -35,7 +35,7 @@ def main():
 						if args.verbose: print("Skipping %s" % next_genre)
 				else:
 						if args.verbose: print("Adding %s" % next_genre)
-						communication_handler.add_song(communication_handler.get_song(next_genre))
+						communication_handler.add_song(new_song)
 				del playlist
 
 				wait = 0.5
