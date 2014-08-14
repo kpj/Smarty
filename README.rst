@@ -62,7 +62,7 @@ Smarty could be used like this
 
     smarty --norepeat --maxnum 3000 --verbose --exclude Comedy
 
-This would only add songs which are not already in the current playlist, allow a maximum number of 3000 songs (deletes from the beginning if that number is exceeded). It will furthermore display the genre of each added song and not add the genre 'Comedy'.
+This would only add songs which are not already in the current playlist and allow a maximum number of 3000 songs (deletes from the beginning if that number is exceeded). It will furthermore display the genre of each added song and not add the genre 'Comedy'.
 
 
 Bug Reports
