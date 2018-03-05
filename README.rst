@@ -1,11 +1,11 @@
 Smarty
 ======
 
-.. image:: https://pypip.in/v/smarty/badge.png
+.. image:: https://img.shields.io/pypi/v/smarty.svg
 	:target: https://crate.io/packages/smarty/
 	:alt: Latest version
 	
-.. image:: https://pypip.in/d/smarty/badge.png
+.. image:: https://img.shields.io/pypi/dm/smarty.svg
 	:target: https://crate.io/packages/smarty/
 	:alt: Number of PyPI downloads
 
